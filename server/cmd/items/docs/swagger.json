@@ -1,0 +1,107 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Challange",
+        "title": "Api Go",
+        "contact": {
+            "name": "Mariano Arias",
+            "url": "www.github.com/MarianoArias",
+            "email": "mariano.arias.1987@gmail.com"
+        },
+        "license": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/images/": {
+            "get": {
+                "description": "Get Image",
+                "produces": [
+                    "image/png",
+                    "image/gif",
+                    "image/jpeg"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Image src",
+                        "name": "fileName",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {},
+                    "404": {}
+                }
+            }
+        },
+        "/items/": {
+            "get": {
+                "description": "Get Items",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {},
+                    "204": {},
+                    "500": {}
+                }
+            },
+            "post": {
+                "description": "Post Item",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "responses": {
+                    "201": {},
+                    "400": {},
+                    "500": {}
+                }
+            }
+        },
+        "/items/{id}": {
+            "get": {
+                "description": "Get Item",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Item id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {},
+                    "404": {}
+                }
+            },
+            "patch": {
+                "description": "Post Item",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Item id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {},
+                    "400": {},
+                    "404": {},
+                    "500": {}
+                }
+            }
+        }
+    }
+}

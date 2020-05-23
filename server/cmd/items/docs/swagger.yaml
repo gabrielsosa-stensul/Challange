@@ -1,0 +1,75 @@
+basePath: /
+host: localhost:8080
+info:
+  contact:
+    email: mariano.arias.1987@gmail.com
+    name: Mariano Arias
+    url: www.github.com/MarianoArias
+  description: Challange
+  license: {}
+  title: Api Go
+  version: "1.0"
+paths:
+  /images/:
+    get:
+      description: Get Image
+      parameters:
+      - description: Image src
+        in: path
+        name: fileName
+        required: true
+        type: string
+      produces:
+      - image/png
+      - image/gif
+      - image/jpeg
+      responses:
+        "200": {}
+        "404": {}
+  /items/:
+    get:
+      description: Get Items
+      produces:
+      - application/json
+      responses:
+        "200": {}
+        "204": {}
+        "500": {}
+    post:
+      consumes:
+      - multipart/form-data
+      description: Post Item
+      responses:
+        "201": {}
+        "400": {}
+        "500": {}
+  /items/{id}:
+    get:
+      description: Get Item
+      parameters:
+      - description: Item id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200": {}
+        "404": {}
+    patch:
+      consumes:
+      - multipart/form-data
+      description: Post Item
+      parameters:
+      - description: Item id
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200": {}
+        "400": {}
+        "404": {}
+        "500": {}
+swagger: "2.0"

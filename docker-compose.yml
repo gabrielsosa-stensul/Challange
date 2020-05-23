@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+    
+    mongo:
+        image: 'mongo:latest'
+        restart: always
+            
+    nginx:
+        depends_on:
+            - api
+            - client
+        restart: 'always'
+        build:
+            dockerfile: 'Dockerfile.dev'
+            context: './nginx'
+        ports:
+            - '3050:80'
+            
+    api:
+        depends_on:
+            - mongo
+        build:
+            dockerfile: 'Dockerfile.dev'
+            context: './server'
+        volumes:
+            - './server:/go/src/app'
+        environment:
+            DATABASE_HOST: 'mongo'
+            DATABASE_PORT: '27017'
+            DATABASE_NAME: 'challange'
+            
+    client:
+        stdin_open: true
+        build:
+            dockerfile: 'Dockerfile.dev'
+            context: './client'
+        volumes:
+            - './client:/usr/share/nginx/html'
