@@ -8,7 +8,7 @@
 ## Installation 
 * Clone repository
 ```
-git clone git@github.com:MarianoArias/challange.git
+git clone git@github.com:MarianoArias/Challange.git
 ```
 
 
