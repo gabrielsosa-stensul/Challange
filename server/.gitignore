@@ -24,4 +24,7 @@
 # Environment files
 /.env.local
 /.env.*.local
-tmp/
+
+# tmp folder
+tmp/*
+!tmp/README.md

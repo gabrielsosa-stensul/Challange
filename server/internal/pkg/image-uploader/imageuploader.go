@@ -59,7 +59,7 @@ func Validate(c *gin.Context, field string, width int, height int) error {
 	}
 
 	if image.Width != width || image.Height != height {
-		return errors.New("Image size must be " + width + "px x " + height + "px")
+		return errors.New("Image size must be " + strconv.Itoa(width) + "px x " + strconv.Itoa(height) + "px")
 	}
 
 	return nil
