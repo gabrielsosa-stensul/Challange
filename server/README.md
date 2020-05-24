@@ -9,6 +9,11 @@ It includes the necessary endpoints to handle the crud operations that the front
 * MongoDB >= 4.0
 
 
+## Installation 
+* Create **.env.local** and set it up with environment variables. 
+Use **.dist** files as examples.
+
+
 ## Parse and generate API documentation
 * Run following command in the project's root folder:
 ```
