@@ -1,6 +1,6 @@
 # Server
 
-This API is developed with Go using Gin framework (https://github.com/gin-gonic/gin). 
+This API is developed with **Go** using **Gin framework** (https://github.com/gin-gonic/gin). 
 It includes the necessary endpoints to handle the crud operations that the frontend requires.
 
 
