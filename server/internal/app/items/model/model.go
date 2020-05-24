@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/MarianoArias/challange-api/internal/pkg/mongodb"
+	"github.com/MarianoArias/Challange/server/internal/pkg/mongodb"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

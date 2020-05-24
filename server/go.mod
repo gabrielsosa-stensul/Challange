@@ -1,4 +1,4 @@
-module github.com/MarianoArias/challange-api
+module github.com/MarianoArias/Challange/server
 
 go 1.13
 

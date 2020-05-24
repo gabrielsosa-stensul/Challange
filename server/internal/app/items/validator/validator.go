@@ -1,7 +1,7 @@
 package validator
 
 import (
-	"github.com/MarianoArias/challange-api/internal/pkg/image-uploader"
+	"github.com/MarianoArias/Challange/server/internal/pkg/image-uploader"
 	"github.com/gin-gonic/gin"
 )
 

@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/MarianoArias/challange-api/internal/app/items/model"
-	"github.com/MarianoArias/challange-api/internal/app/items/validator"
-	"github.com/MarianoArias/challange-api/internal/pkg/image-uploader"
+	"github.com/MarianoArias/Challange/server/internal/app/items/model"
+	"github.com/MarianoArias/Challange/server/internal/app/items/validator"
+	"github.com/MarianoArias/Challange/server/internal/pkg/image-uploader"
 	"github.com/gin-gonic/gin"
 )
 

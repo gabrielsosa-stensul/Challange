@@ -1,9 +1,9 @@
 package api
 
 import (
-	_ "github.com/MarianoArias/challange-api/cmd/items/docs"
-	"github.com/MarianoArias/challange-api/internal/app/items/controller"
-	"github.com/MarianoArias/challange-api/internal/pkg/health-handler"
+	_ "github.com/MarianoArias/Challange/server/cmd/items/docs"
+	"github.com/MarianoArias/Challange/server/internal/app/items/controller"
+	"github.com/MarianoArias/Challange/server/internal/pkg/health-handler"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"

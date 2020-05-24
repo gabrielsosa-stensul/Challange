@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	environmentloader "github.com/MarianoArias/challange-api/internal/pkg/environment-loader"
+	environmentloader "github.com/MarianoArias/Challange/server/internal/pkg/environment-loader"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )

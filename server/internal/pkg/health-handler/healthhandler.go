@@ -3,7 +3,7 @@ package healthhandler
 import (
 	"net/http"
 
-	"github.com/MarianoArias/challange-api/internal/pkg/mongodb"
+	"github.com/MarianoArias/Challange/server/internal/pkg/mongodb"
 	"github.com/gin-gonic/gin"
 )
 

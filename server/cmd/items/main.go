@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/MarianoArias/challange-api/internal/app/items/api"
+	"github.com/MarianoArias/Challange/server/internal/app/items/api"
 )
 
 // @title Api Go
