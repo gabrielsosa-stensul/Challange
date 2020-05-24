@@ -17,6 +17,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Upload recieves a gin context and a field name to manage the upload of that
+// field to a folder.
+// It returns the filename or any write error encountered.
 func Upload(c *gin.Context, field string) (string, error) {
 	file, header, _ := c.Request.FormFile(field)
 
@@ -39,10 +42,14 @@ func Upload(c *gin.Context, field string) (string, error) {
 	return fileName, nil
 }
 
+// GetPath returns the path where the images will be stored.
 func GetPath() string {
 	return "./tmp/"
 }
 
+// Validate returns an error if the image does not respect the defined 
+// extensions (jpg, gif or png), or the width and height that receives as a 
+// parameters.
 func Validate(c *gin.Context, field string, width int, height int) error {
 	file, _, _ := c.Request.FormFile(field)
 
@@ -52,7 +59,7 @@ func Validate(c *gin.Context, field string, width int, height int) error {
 	}
 
 	if image.Width != width || image.Height != height {
-		return errors.New("Image size must be 320px x 320px")
+		return errors.New("Image size must be " + width + "px x " + height + "px")
 	}
 
 	return nil

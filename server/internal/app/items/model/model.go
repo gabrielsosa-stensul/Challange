@@ -19,10 +19,12 @@ type Item struct {
 
 var collection *mongo.Collection
 
+// init sets up the collection in mongodb's database.
 func init() {
 	collection = mongodb.GetDatabase().Collection("items")
 }
 
+// FindAll returns all the items from the database or an error otherwise.
 func FindAll() (*[]Item, error) {
 	var items []Item
 
@@ -49,6 +51,7 @@ func FindAll() (*[]Item, error) {
 	return &items, nil
 }
 
+// Find returns an item from the database or an error otherwise
 func Find(id int) (*Item, error) {
 	var item Item
 
@@ -63,6 +66,8 @@ func Find(id int) (*Item, error) {
 	return &item, nil
 }
 
+// Persist persists an item in the database.
+// It returns write error encountered.
 func Persist(item *Item) error {
 	item.ID = getNextId()
 	item.Order = getNextOrder()
@@ -76,6 +81,8 @@ func Persist(item *Item) error {
 	return nil
 }
 
+// Update updates an item in the database.
+// It returns write error encountered.
 func Update(item *Item) error {
 	filter := bson.D{{"id", item.ID}}
 
@@ -100,6 +107,8 @@ func Update(item *Item) error {
 	return nil
 }
 
+// Delete deletes an item from the database.
+// It returns write error encountered.
 func Delete(item Item) error {
 	filter := bson.D{{"id", item.ID}}
 
@@ -131,6 +140,9 @@ func Delete(item Item) error {
 	return nil
 }
 
+// SwitchOrder changes the order of an item in the database and also of those 
+// affected in the middle.
+// It returns write error encountered.
 func SwitchOrder(from int, to int) error {
 	items, err := FindAll()
 	if err != nil {
@@ -156,6 +168,7 @@ func SwitchOrder(from int, to int) error {
 	return nil
 }
 
+// getNextId returns the number of the next id to use in the database.
 func getNextId() int {
 	var item Item
 
@@ -179,6 +192,7 @@ func getNextId() int {
 	return 1
 }
 
+// getNextOrder return the number of the next order to use in the database.
 func getNextOrder() int {
 	var item Item
 

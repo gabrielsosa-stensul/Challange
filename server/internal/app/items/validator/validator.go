@@ -5,6 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ValidatePostHandler does all the necessary validations to post an item.
+// It returns a gin interface with errors encountered.
 func ValidatePostHandler(c *gin.Context) gin.H {
 	var responseError gin.H
 
@@ -26,6 +28,8 @@ func ValidatePostHandler(c *gin.Context) gin.H {
 	return responseError
 }
 
+// ValidatePostHandler does all the necessary validations to patch an item.
+// It returns a gin interface with errors encountered.
 func ValidatePatchHandler(c *gin.Context) gin.H {
 	var responseError gin.H
 

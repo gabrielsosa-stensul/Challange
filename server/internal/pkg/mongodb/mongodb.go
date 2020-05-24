@@ -14,6 +14,8 @@ import (
 
 var client *mongo.Client
 
+// init establishes the connection to mongodb with the credentials defined in the 
+// environment variables and set up a mongo client.
 func init() {
 	environmentloader.Load()
 
@@ -29,6 +31,7 @@ func init() {
 	}
 }
 
+// Ping returns an error if the connection is down.
 func Ping() error {
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	err := client.Ping(ctx, nil)
@@ -40,10 +43,13 @@ func Ping() error {
 	return nil
 }
 
+// GetClient returns a mongo client
 func GetClient() *mongo.Client {
 	return client
 }
 
+// GetDatabase returns a mongo database that is defined in the environment 
+// variables.
 func GetDatabase() *mongo.Database {
 	return client.Database(os.Getenv("DATABASE_NAME"))
 }

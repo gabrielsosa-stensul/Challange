@@ -10,6 +10,7 @@ import (
 	"github.com/zsais/go-gin-prometheus"
 )
 
+// SetupRouter sets up all the routes the API will handle.
 func SetupRouter() *gin.Engine {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
@@ -34,6 +35,7 @@ func SetupRouter() *gin.Engine {
 	return router
 }
 
+// CORSMiddleware sets up all the headers needed to allow cors origin.
 func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")

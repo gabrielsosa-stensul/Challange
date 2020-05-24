@@ -7,7 +7,8 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// Load .env files. Existing .env files take precendence of .env files that are loaded later
+// Load .env files. 
+// Existing .env files take precendence of .env files that are loaded later.
 func Load() {
 	env := os.Getenv("APP_ENV")
 	if "" == env {
@@ -33,6 +34,8 @@ func Load() {
 	checkMandatoryVariables()
 }
 
+// checkMandatoryVariables does all the necessary validations to make sure
+// all mandatory variables are set up.
 func checkMandatoryVariables() {
 	mandatoryVariables := []string{
 		"DATABASE_HOST",

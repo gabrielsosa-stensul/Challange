@@ -14,6 +14,8 @@ const (
 	DOWN = "DOWN"
 )
 
+// HealthHandler serves to expose a health endpoint with the general state of 
+// the API and its services.
 func HealthHandler(c *gin.Context) {
 	generalStatus, mongodbStatus := UP, UP
 
