@@ -23,16 +23,16 @@ go run cmd/items/main.go
 ```
 
 
-## See Api documentation
+## See API documentation
 * Run application and browse to the following url:
 ```
 http://{domain}/doc/index.html
 ```
 
 
-## Health & Metrics
+## Check API Health & Metrics
 * Run application and browse to the following urls:
 ```
-http://{domain}/health/
-http://{domain}/metrics/
+http://{domain}/health
+http://{domain}/metrics
 ```

@@ -26,9 +26,9 @@ func SetupRouter() *gin.Engine {
 
 	// Api Doc Endpoint => /doc/index.html
 	router.GET("/doc/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	// Health Endpoint => /health/
-	router.GET("/health/", healthhandler.HealthHandler)
-	// Metrics Endpoint => /metrics/
+	// Health Endpoint => /health
+	router.GET("/health", healthhandler.HealthHandler)
+	// Metrics Endpoint => /metrics
 	prometheus := ginprometheus.NewPrometheus("gin")
 	prometheus.Use(router)
 
