@@ -32,7 +32,12 @@ func GetImageHandler(c *gin.Context) {
 func CgetHandler(c *gin.Context) {
 	_items, err := model.FindAll()
 	if err != nil {
-		c.JSON(http.StatusNoContent, gin.H{})
+		c.JSON(http.StatusInternalServerError, nil)
+		return
+	}
+	
+	if len(*_items) == 0 {
+		c.JSON(http.StatusNoContent, nil)
 		return
 	}
 
@@ -56,17 +61,17 @@ func DeleteHandler(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	item, err := model.Find(id)
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{})
+		c.JSON(http.StatusNotFound, nil)
 		return
 	}
 
 	err = model.Delete(*item)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{})
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 
-	c.JSON(http.StatusNoContent, gin.H{})
+	c.JSON(http.StatusNoContent, nil)
 	return
 }
 
@@ -80,7 +85,7 @@ func GetHandler(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	item, err := model.Find(id)
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{})
+		c.JSON(http.StatusNotFound, nil)
 		return
 	}
 
@@ -105,7 +110,7 @@ func PostHandler(c *gin.Context) {
 
 	fileName, err := imageuploader.Upload(c, "image")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{})
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 
@@ -115,7 +120,7 @@ func PostHandler(c *gin.Context) {
 
 	err = model.Persist(&item)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{})
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 
@@ -136,7 +141,7 @@ func PatchHandler(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	item, err := model.Find(id)
 	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{})
+		c.JSON(http.StatusNotFound, nil)
 		return
 	}
 
@@ -150,7 +155,7 @@ func PatchHandler(c *gin.Context) {
 	if file != nil {
 		fileName, err := imageuploader.Upload(c, "image")
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{})
+			c.JSON(http.StatusInternalServerError, nil)
 			return
 		}
 		item.Image = fileName
@@ -163,7 +168,7 @@ func PatchHandler(c *gin.Context) {
 
 	err = model.Update(item)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{})
+		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
 
@@ -171,7 +176,7 @@ func PatchHandler(c *gin.Context) {
 	if order != 0 && item.Order != order {
 		err = model.SwitchOrder(item.Order, order)
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{})
+			c.JSON(http.StatusInternalServerError, nil)
 			return
 		}
 	}
