@@ -15,7 +15,7 @@ func Load() {
 		env = "dev"
 	}
 
-	absolutePath := os.ExpandEnv("$GOPATH/src/github.com/MarianoArias/challange-api/")
+	absolutePath := os.ExpandEnv("./")
 
 	// If there's a .env.$env.local file, this one is loaded. Otherwise, it falls back to .env.$env
 	godotenv.Load(absolutePath + ".env." + env + ".local")

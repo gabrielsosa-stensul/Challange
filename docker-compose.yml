@@ -12,7 +12,7 @@ services:
             - client
         restart: 'always'
         build:
-            dockerfile: 'Dockerfile.dev'
+            dockerfile: 'Dockerfile'
             context: './nginx'
         ports:
             - '3050:80'
@@ -21,7 +21,7 @@ services:
         depends_on:
             - mongo
         build:
-            dockerfile: 'Dockerfile.dev'
+            dockerfile: 'Dockerfile'
             context: './server'
         volumes:
             - './server:/go/src/app'
@@ -33,7 +33,7 @@ services:
     client:
         stdin_open: true
         build:
-            dockerfile: 'Dockerfile.dev'
+            dockerfile: 'Dockerfile'
             context: './client'
         volumes:
             - './client:/usr/share/nginx/html'
