@@ -10,7 +10,7 @@ var list = new Component("#list-component", {
                         <img class="ui avatar image" src="` + API_URL + _item.image + `">
                     </div>
                     <div class="eleven wide column description">
-                        ` + _item.description + `
+                        ` + _item.description.replace(/\n/g, "<br />") + `
                     </div>
                     <div class="two wide column right floated ui icon buttons">
                         <button class="ui button" onClick="editItem(` + _item.id + `)" title="Edit">
@@ -24,14 +24,14 @@ var list = new Component("#list-component", {
             `);
         });
         return (`
-            <div class="ui grid" style="margin: -1rem 0 -2em 0">
+            <div class="ui grid">
                 <div class="eight wide column">
                     <div class="ui label large blue">
                         Quantity: <div class="detail">` + props.items.length + `</div>
                     </div>
                 </div>
                 <div class="eight wide column">
-                    <button class="ui right floated small button positive" onclick="return newItem()" style="margin-bottom: 1.5em">
+                    <button class="ui right floated small button positive" onclick="return newItem()">
                         New Item
                     </button>
                 </div>

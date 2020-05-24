@@ -13,7 +13,7 @@ var form = new Component("#form-component", {
                             <div class="ui error message image"></div>
                         </div>
                         <div class="one wide field hide">
-                            <img style="height:43px; margin-top: 23px;" src="` + API_URL + props.item.image + `">
+                            <img src="` + API_URL + props.item.image + `">
                         </div>
                     </div>
                     <div class="field">
