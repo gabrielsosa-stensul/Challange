@@ -9,7 +9,7 @@ var form = new Component("#form-component", {
                     <div class="fields">
                         <div class="fifteen wide field">
                             <label>Image</label>
-                            <input type="file" name="image" accept="image/png,image/jpeg">
+                            <input type="file" name="image" accept="image/jpeg,image/gif,image/png">
                             <div class="ui error message image"></div>
                         </div>
                         <div class="one wide field hide">
@@ -30,7 +30,7 @@ var form = new Component("#form-component", {
                     <div class="fields">
                         <div class="sixteen wide field">
                             <label>Image</label>
-                            <input type="file" name="image" accept="image/png,image/jpeg" required>
+                            <input type="file" name="image" accept="image/jpeg,image/gif,image/png" required>
                             <div class="ui error message image"></div>
                         </div>
                     </div>
