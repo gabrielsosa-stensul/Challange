@@ -35,7 +35,7 @@ func CgetHandler(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, nil)
 		return
 	}
-	
+
 	if len(*_items) == 0 {
 		c.JSON(http.StatusNoContent, nil)
 		return
@@ -102,9 +102,9 @@ func GetHandler(c *gin.Context) {
 // @Failure 500
 // @Router /items/ [post]
 func PostHandler(c *gin.Context) {
-	errorResponse := validator.ValidatePostHandler(c)
-	if errorResponse != nil {
-		c.JSON(http.StatusBadRequest, errorResponse)
+	errors := validator.ValidatePostHandler(c)
+	if errors != nil {
+		c.JSON(http.StatusBadRequest, errors)
 		return
 	}
 
@@ -145,9 +145,9 @@ func PatchHandler(c *gin.Context) {
 		return
 	}
 
-	errorResponse := validator.ValidatePatchHandler(c)
-	if errorResponse != nil {
-		c.JSON(http.StatusBadRequest, errorResponse)
+	errors := validator.ValidatePatchHandler(c)
+	if errors != nil {
+		c.JSON(http.StatusBadRequest, errors)
 		return
 	}
 

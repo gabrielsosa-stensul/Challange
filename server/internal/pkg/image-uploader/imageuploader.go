@@ -47,19 +47,19 @@ func GetPath() string {
 	return "./tmp/"
 }
 
-// Validate returns an error if the image does not respect the defined 
-// extensions (jpg, gif or png), or the width and height that receives as a 
+// Validate returns an error if the image does not respect the defined
+// extensions (jpg, gif or png), or the width and height that receives as a
 // parameters.
 func Validate(c *gin.Context, field string, width int, height int) error {
 	file, _, _ := c.Request.FormFile(field)
 
 	image, _, err := image.DecodeConfig(file)
 	if err != nil {
-		return errors.New("Image extension must jpg, gif or png")
+		return errors.New("Extension must be jpg, gif or png")
 	}
 
 	if image.Width != width || image.Height != height {
-		return errors.New("Image size must be " + strconv.Itoa(width) + "px x " + strconv.Itoa(height) + "px")
+		return errors.New("Size must be " + strconv.Itoa(width) + "px x " + strconv.Itoa(height) + "px")
 	}
 
 	return nil
