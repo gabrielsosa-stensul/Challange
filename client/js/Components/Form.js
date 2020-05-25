@@ -25,7 +25,7 @@ var form = new Component("#form-component", {
                         <textarea type="text" name="description" maxlength="300" rows="3" required>` + props.item.description + `</textarea>
                         <div class="ui error message description"></div>
                     </div>
-                    <button class="ui button" type="submit">Update</button>
+                    <button class="ui button positive" type="submit">Update</button>
                 </form>
             `;
         } else {
@@ -45,7 +45,7 @@ var form = new Component("#form-component", {
                         <textarea type="text" name="description" maxlength="300" rows="3" required></textarea>
                         <div class="ui error message description"></div>
                     </div>
-                    <button class="ui button" type="submit">Create</button>
+                    <button class="ui button positive" type="submit">Create</button>
                 </form>
             `;
         }
